@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<!DOCTYPE chapter
+[
+
+<!ENTITY % crl_ent PUBLIC "crl.ent" 'http://www.crifan.com/files/res/docbook/entity/crl.ent'>
+%crl_ent;
+
+]>
+
+<chapter
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xl="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:mathml="http://www.w3.org/1998/Math/MathML"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns="http://docbook.org/ns/docbook"
+
+    xml:id="ch02_bt_arch_profile">
+
+<title>蓝牙协议的架构</title>
+
+<sect1 xml:id="bt_profile_type"><title>蓝牙的各种Profile的分类</title>
+	<sect2 xml:id="bt_proto_classification_via_significance"><title>根据重要程度来划分的蓝牙协议</title>
+		<para>蓝牙协议，也可以成为蓝牙规范，分为几大类：</para>
+		<itemizedlist>
+			<listitem>核心协议Core Specification
+				<para>所以你常会看到，某某Profile或规范，是定义在Core Specification中的。</para>
+			</listitem>
+			<listitem>可选的协议
+				<para>比如v2.0的EDR是可选的，可以实现，也可以不实现</para>
+				<para>比如v3.0的HS也是可选的</para>
+			</listitem>
+		</itemizedlist>
+		<para></para>
+		<para></para>
+	</sect2>
+		
+	<sect2 xml:id="bt_proto_classification_via_side"><title>根据处在某端来划分的蓝牙协议</title>
+		<para>蓝牙协议栈protocol stack，主要分成两类：</para>
+		<itemizedlist>
+			<listitem>Host Stack==Host主机端==操作系统端
+				<para></para>
+			</listitem>
+			<listitem>Controller Stack==Device设备端==controller==设备的控制器==设备的CPU==蓝牙的广播基带？+微处理器microprocessor
+				<para></para>
+			</listitem>
+		</itemizedlist>
+		<para></para>
+		<para></para>
+		<para></para>
+	</sect2>
+	
+	<sect2 xml:id="bt_proto_classification_via_function"><title>根据作用来划分的蓝牙协议</title>
+		<para></para>
+		<para></para>
+		<para></para>
+		<para>蓝牙的各种协议的分类：</para>
+		<table xml:id="tbl.bt_protocol_profile_classification"><title>蓝牙的各种协议和profile的分类</title>
+			<tgroup cols="4">
+				<colspec colnum="1" colname="col1" colwidth="1*" />
+				<colspec colnum="2" colname="col2" colwidth="1*" />
+				<colspec colnum="3" colname="col3" colwidth="1*" />
+				<colspec colnum="4" colname="col4" colwidth="1*" />
+
+				<thead>
+					<row><entry>蓝牙profile和protocol的分类</entry><entry>profile缩写</entry><entry>profile全名</entry><entry>典型应用举例</entry></row>
+				</thead>
+				
+				<tbody>
+					<row><entry morerows="2" valign="middle">强制性profile</entry><entry>LMP</entry><entry>Link Management Protocol</entry><entry></entry></row>
+					<row><entry>L2CAP</entry><entry>Logical Link Control and Adaptation Protocol</entry><entry></entry></row>
+					<row><entry>SDP</entry><entry>Service Discovery Protocol</entry><entry></entry></row>
+					<row><entry morerows="1" valign="middle">最常见且通用的Profile</entry><entry>HCI</entry><entry>Host Controller Interface</entry><entry></entry></row>
+					<row><entry>RFCOMM</entry><entry>Radio Frequency COMMunication</entry><entry></entry></row>
+					<row><entry morerows="7" valign="middle">其他常见Profile</entry><entry>BNEP</entry><entry>Bluetooth Network Encapsulation Protocol</entry><entry></entry></row>
+					<row><entry>AVCTP</entry><entry>Audio/Video Control Transport Protocol</entry><entry></entry></row>
+					<row><entry>AVDTP</entry><entry>Audio/Video Distribution Transport Protocol</entry><entry></entry></row>
+					<row><entry>TCS BIN</entry><entry>Telephony Control Protocol – Binary</entry><entry></entry></row>
+					<row><entry>AT commands</entry><entry>attention sequence (modem prefix)</entry><entry></entry></row>
+					<row><entry>A2DP</entry><entry>Advanced Audio Distribution Profile</entry><entry>无绳耳机</entry></row>
+					<row><entry>ATT</entry><entry>Attribute Profile</entry><entry></entry></row>
+					<row><entry>AVRCP</entry><entry>Audio/Video Remote Control Profile</entry><entry></entry></row>
+					<row><entry morerows="8" valign="middle">采纳的（别的，第三方的）协议</entry><entry>PPP</entry><entry>Point-to-Point Protocol</entry><entry></entry></row>
+					<row><entry>TCP</entry><entry>Transmission Control Protocol</entry><entry></entry></row>
+					<row><entry>UDP</entry><entry>User Datagram Protocol</entry><entry></entry></row>
+					<row><entry>IP</entry><entry>Internet Protocol</entry><entry></entry></row>
+					<row><entry>OBEX</entry><entry>Object Exchange Protocol</entry><entry></entry></row>
+					<row><entry>WAE</entry><entry>Wireless Application Environment</entry><entry></entry></row>
+					<row><entry>WAP</entry><entry>Wireless Application Protocol</entry><entry></entry></row>
+					<row><entry>vCard</entry><entry>Virtual Card</entry><entry></entry></row>
+					<row><entry>vCal</entry><entry>Virtual Calendar</entry><entry></entry></row>
+				</tbody>
+			</tgroup>
+		</table>
+		<para></para>
+		<para></para>
+	</sect2>
+
+</sect1>
+
+<sect1 xml:id="bt_protocol_stack"><title>蓝牙的协议栈架构</title>
+	<figure xml:id="fg.bt_protocol_arch_include_bnep"><title>包含了BENP的蓝牙协议架构</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_protocol_arch_include_bnep.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_protocol_arch_include_bnep.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+
+	<figure xml:id="fg.bt_protocol_arch_base_on_hci"><title>基于HCI的蓝牙协议架构</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_protocol_arch_base_on_hci.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_protocol_arch_base_on_hci.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+
+	<figure xml:id="fg.bt_protocol_arch_transport_group"><title>侧重传输协议的蓝牙协议架构</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_protocol_arch_transport_group.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_protocol_arch_transport_group.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+
+	<figure xml:id="fg.bt_protocol_arch_middleware_group"><title>侧重中间件协议的蓝牙协议架构</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_protocol_arch_middleware_group.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_protocol_arch_middleware_group.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+
+	<figure xml:id="fg.bt_protocol_arch_application_group"><title>侧重应用程序层的蓝牙协议架构</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_protocol_arch_application_group.png" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_protocol_arch_application_group.png" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+
+	<para>侧重不同profile的协议：</para>
+	<para>通用访问的profile</para>
+	<figure xml:id="fg.bt_profile_general_access"><title>蓝牙的通用访问profile</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_profile_general_access.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_profile_general_access.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+
+	<para>无线广播和数据报的蓝牙协议架构：</para>
+	<figure xml:id="fg.bt_radio_telegram_protocols"><title>蓝牙协议架构之无线广播和数据报</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_radio_telegram_protocols.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_radio_telegram_protocols.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+</sect1>
+
+
+<sect1 xml:id="bt_profile_audio"><title>音频的profile</title>
+	<figure xml:id="fg.bt_profile_audio_irmc"><title>基于红外的蓝牙的音频profile</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_profile_audio_irmc.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_profile_audio_irmc.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+
+	<figure xml:id="fg.bt_profile_audio_lan"><title>基于网络的蓝牙的音频profile</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_profile_audio_lan.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_profile_audio_lan.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+
+	<para>以及对应的针对音频profile的配置：</para>
+	<figure xml:id="fg.bt_profole_headset_configuration"><title>蓝牙的音频profile的配置</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_profole_headset_configuration.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_profole_headset_configuration.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+
+</sect1>
+
+<sect1 xml:id="bt_protocol_vs_osi_vs_ieee_802"><title>蓝牙协议栈 vs OSI模型 vs IEEE 802</title>
+	<para>蓝牙的协议栈架构和OSI模型以及IEEE 802标准的对比关系：</para>
+	<figure xml:id="fg.bt_protocol_stack_osi_layer_ieee_802"><title>蓝牙协议栈和OSI模型以及IEEE 802标准的对比关系</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_protocol_stack_osi_layer_ieee_802.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_protocol_stack_osi_layer_ieee_802.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+	<para></para>
+	<para></para>
+	<para>另外也有个蓝牙协议栈和OSI不同层的对照的图，供参考：</para>
+	<figure xml:id="fg.bt_protocol_stack_vs_osi_layers"><title>蓝牙协议栈和OSI模型不同层之间的关系</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_protocol_stack_vs_osi_layers.png" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_protocol_stack_vs_osi_layers.png" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+	<para></para>
+</sect1>
+
+</chapter>

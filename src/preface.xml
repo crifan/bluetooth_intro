@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<!DOCTYPE preface>
+
+<preface
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xl="http://www.w3.org/1999/xlink"
+    
+    xml:id="preface">
+    
+<title>正文之前</title>
+
+<section xml:id="purpose"><title>目的</title>
+    <para>本文旨在讲清楚蓝牙技术是啥，系统架构如何，各种协议之间关系，以及蓝牙有哪些典型的应用。</para>
+</section>
+
+<section xml:id="declaration"><title>声明</title>
+    <para>任何问题、意见、建议等，都欢迎发邮件一起探讨：admin (at) crifan.com。</para>
+</section>
+
+</preface>

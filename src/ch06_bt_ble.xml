@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<!DOCTYPE chapter
+[
+
+<!ENTITY % crl_ent PUBLIC "crl.ent" 'http://www.crifan.com/files/res/docbook/entity/crl.ent'>
+%crl_ent;
+
+]>
+
+<chapter 
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xl="http://www.w3.org/1999/xlink"
+    
+    xml:id="ch06_bt_ble">
+
+<title>蓝牙协议之BLE</title>
+
+<sect1 xml:id="ble_simple_intro"><title>BLE简介</title>
+	<para>Bluetooth Low Energy ==BLE</para>
+	<para>BLE有时候也被叫做Bluetooth Smart</para>
+	<para>BLE是标准的蓝牙（协议规范）的一个轻量级的子集</para>
+	<para>BLE是在蓝牙4.0的核心规范中引入的。</para>
+	<para></para>
+	<para>BLE，不仅是和标准的蓝牙规范是有重叠部分的，并且BLE是从骨子里就和标准规范不是一个血统的：</para>
+	<para>BLE是Nokia发起的，作为一个内部的名为Wibree的项目，后来被蓝牙组织SIG所采纳，才有了现在的BLE。</para>
+	<para></para>
+	<para>BLE之前的，临时用的名字有：Wibree，Bluetooth ULP (Ultra Low Power)</para>
+	<para>2011年下半年，改名为：</para>
+	<itemizedlist>
+		<listitem>主机端的BLE：Bluetooth Smart Ready</listitem>
+		<listitem>设备（芯片，传感器）端的BLE：Bluetooth Smart</listitem>
+	</itemizedlist>
+	<para></para>
+	<para></para>
+	<para>BLE，和标准蓝牙技术（比如蓝牙2.1+EDR/3.0+HS版本）一样，工作在免许可的2.4GHz ISM射频频段。</para>
+	<para></para>
+	<para></para>
+	<para>4.0以前的蓝牙，控制器和主机是分开的，而BLE中控制器和主机是在一起的。</para>
+	<para></para>
+	<para>BLE的相对于标准蓝牙的一些主要特点：</para>
+	<itemizedlist>
+		<listitem>低成本</listitem>
+		<listitem>短距离</listitem>
+		<listitem>超低功耗(ULP)</listitem>
+	</itemizedlist>
+	<para></para>
+</sect1>
+
+<sect1 xml:id="ble_single_dula_mode"><title>BLE的单模和双模</title>
+	<para>BLE的芯片实现有两种模式：</para>
+	<itemizedlist>
+		<listitem>单模==BLE
+			<para>只实现了BLE</para>
+			<para>部分实现了单模的蓝牙的厂商：STMicroelectronics, AMICCOM, CSR, Nordic Semiconductor, Texas Instruments</para>
+			<para>成本降低后的单模的蓝牙芯片，支持整合到高度集成和紧凑的设备，带有一个轻量级的链接层Link Layer，</para>
+			<para>支持超低功耗的空闲idle模式操作，简单的设备发现，非常节能的单点对多点数据传输，以尽可能低的功耗下的安全加密连接。</para>
+			<para></para>
+			<para>专门针对ULP操作优化了。</para>
+			<para></para>
+		</listitem>
+		<listitem>双模==Bluetooth Classic+BLE
+			<para>将Bluetooth Smart即BLE集成到已有的经典的蓝牙协议中</para>
+			<para>部分实现了双模蓝牙的厂商：Qualcomm-Atheros, CSR, Broadcom and Texas Instruments</para>
+			<para></para>
+			<para>由于双模设备要求执行标准蓝牙和蓝牙低能耗任务，因此双模芯片针对ULP操作的优化程度没有像单模芯片那么高</para>
+			<para></para>
+			<para>单模芯片可以用单节钮扣电池(如3V、220mAh的CR2032)工作很长时间(几个月甚至几年)。</para>
+			<para>标准蓝牙技术（和蓝牙低能耗双模器件）通常要求使用至少两节AAA电池（电量是钮扣电池的10至12倍，可以容忍高得多的峰值电流），</para>
+			<para>并且更多情况下最多只能工作几天或几周的时间（取决于具体应用）</para>
+			<para>注意，也有一些高度专业化的标准蓝牙设备，它们可以使用容量比AAA电池低的电池工作。</para>
+		</listitem>
+	</itemizedlist>
+	<para></para>
+	<para></para>
+	<para></para>
+	<para>实现蓝牙协议的芯片，由于蓝牙协议的特殊性，即之前的标准的蓝牙和后期的BLE的低功耗蓝牙是不完全兼容的，因此蓝牙芯片如果想要实现对两种模式都支持的话，则需要实现蓝牙的双模。
+	不过蓝牙双模和标准蓝牙以及蓝牙BLE，都是可以互相通信的。</para>
+	<para>用架构图表示如下：</para>
+	<figure xml:id="fg.bt_implementation_dual_single_mode"><title>蓝牙的单模和双模的通信</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_implementation_dual_single_mode.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_implementation_dual_single_mode.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+	<figure xml:id="fg.ble_communicate_with_single_inside_dual"><title>双模芯片使用其中蓝牙ULP部分与单模器件通信</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/ble_communicate_with_single_inside_dual.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/ble_communicate_with_single_inside_dual.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+	<para></para>
+	<para></para>
+</sect1>
+
+<sect1 xml:id="ble_proto_arch"><title>BLE蓝牙协议栈架构</title>
+	<para>BLE蓝牙协议栈的架构如下：</para>
+	<figure xml:id="fg.ble_protocol_arch_example_of_manufacture"><title>以工厂为例来解释BLE的蓝牙协议栈架构</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/ble_protocol_arch_example_of_manufacture.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/ble_protocol_arch_example_of_manufacture.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+	<para>BLE中所有profile和应用都建构在GAP或GATT之上。</para>
+	<para>每一层的含义如下：</para>
+	<itemizedlist>
+		<listitem>PHY层==工作车间
+			<para>1Mbps自适应跳频GFSK（高斯频移键控），运行在免证的2.4GHz</para>
+			<para></para>
+			<para></para>
+		</listitem>
+		<listitem>LL层==RF控制器==控制室
+			<para>控制设备处于准备（standby）、广播、监听/扫描 （scan）、初始化、连接，这五种状态中一种。</para>
+			<para>五种状态切换描述为：未连接时，设备广播信息（向周围邻居讲“我来了”），另外一个设备一直监听或按需扫描（看看有没有街坊邻居家常里短可聊，打招呼“哈，你来啦”），</para>
+			<para>两个设备连接初始化（搬几把椅子到院子），设备连接上了（开聊）。</para>
+			<para>发起聊天的设备为主设备，接受聊天的设备为从设备，同一次聊天只能有一个意见领袖，即主设备和从设备不能切换。</para>
+			<para></para>
+		</listitem>
+		<listitem>HCI层==接口层==通信部
+			<para>向上为主机提供软件应用程序接口（API），对外为外部硬件控制接口，可以通过串口、SPI、USB来实现设备控制</para>
+			<para></para>
+			<para></para>
+		</listitem>
+		<listitem>L2CAP层==物流部
+			<para>行李打包和拆封处，提供数据封装服务</para>
+			<para></para>
+			<para></para>
+		</listitem>
+		<listitem>SM层==保卫处
+			<para>提供配对和密匙分发，实现安全连接和数据交换</para>
+			<para></para>
+			<para></para>
+		</listitem>
+		<listitem>ATT层==库房
+			<para>负责数据检索</para>
+			<para></para>
+			<para></para>
+		</listitem>
+		<listitem>GATT层==出纳/库房前台
+			<para>出纳负责处理向上与应用打交道，而库房前台负责向下把检索任务子进程交给ATT库房去做，</para>
+			<para>其关键工作是把为检索工作提供合适的profile结构，而profile由检索关键词（characteristics）组成。</para>
+			<para></para>
+		</listitem>
+		<listitem>GAP层==秘书处
+			<para>对上级，提供应用程序接口</para>
+			<para>对下级，管理各级职能部门，尤其是指示LL层控制室五种状态切换，指导保卫处做好机要工作</para>
+			<para></para>
+		</listitem>
+	</itemizedlist>
+</sect1>
+
+<sect1 xml:id="ble_ultra_low_power"><title>蓝牙的超低功耗ULP的实现原理</title>
+	<para>相对于标准蓝牙，BLE的功耗要低很多，此处被叫做超低功耗ULP（Ultra Low Power）。</para>
+	<para>BLE采用了许多手段，去最大限度地降低功耗：</para>
+	<itemizedlist>
+		<listitem>非常少的广播信道数
+			<para>首先要了解的是，如果无线开启的话，就是很费电的，所以BLE的设计理念就是要尽可能的降低无线开启的时间。</para>
+			<para>而此理念应用到最开始的搜索，找到别的蓝牙设备，建立沟通和连接，这部分的设计，就从标准的32个信道的蓝牙，变成了3个信道的BLE。</para>
+			<para>即，标准蓝牙一共有32个信道，而BLE只有3个信道。</para>
+			<para>&gt; BLE搜索设备的时间大大缩短：BLE扫描其他设备只需要0.6ms~1.2ms，而标准蓝牙搜索其他设备要22.5ms。</para>
+			<para>&gt; BLE定位其它无线设备所需的功耗要比标准蓝牙技术低10至20倍</para>
+			<para></para>
+			<para>值得注意的是，使用3个广告信道是某种程度上的妥协：</para>
+			<para>这是在频谱非常拥挤的部分对“开启”时间（对应于功耗）和鲁棒性的一种折衷（广告信道越少，另外一个无线设备在选用频率上广播的机会就越多，就越容易造成信号冲突）。</para>
+			<para>不过该规范的设计师对于平衡这种妥协相当有信心——比如，他们选择的广告信道不会与Wi-Fi默认信道发生冲突。</para>
+			<para>即，蓝牙低能耗技术的广告信道是经过慎重选择的，可以避免与Wi-Fi发生冲突：</para>
+			<figure xml:id="fg.ble_standard_bluetooth_wifi_channels"><title>BLE与标准蓝牙，WiFi的信道对比</title>
+				<mediaobject>
+					<imageobject role="html"><imagedata fileref="images/ble_standard_bluetooth_wifi_channels.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+					<imageobject role="fo">  <imagedata fileref="images/ble_standard_bluetooth_wifi_channels.jpg" align="center" scalefit="1" width="55%" /></imageobject>
+				</mediaobject>
+			</figure>
+			<para>一旦连接成功后，蓝牙低能耗技术就会切换到37个数据信道之一。</para>
+			<para>在短暂的数据传送期间，无线信号将使用标准蓝牙技术倡导的自适应跳频（AFH）技术以伪随机的方式在信道间切换（虽然标准蓝牙技术使用79个数据信道）。</para>
+			<para></para>
+			<para>要求蓝牙低能耗技术无线开启时间最短的另一个原因是它具有1Mbps的原始数据带宽——更大的带宽允许在更短的时间内发送更多的信息。</para>
+			<para>举例来说，具有250kbps带宽的另一种无线技术发送相同信息需要开启的时间要长8倍（消耗更多电池能量）</para>
+			<para>蓝牙低能耗技术“完成”一次连接(即扫描其它设备、建立链路、发送数据、认证和适当地结束)只需3ms。而标准蓝牙技术完成相同的连接周期需要数百毫秒。</para>
+			<para></para>
+		</listitem>
+		<listitem>更加“宽松的”射频参数和发送很短的数据包
+			<para>通过这两种方式限制峰值功耗：</para>
+			<para>两种技术都使用高斯频移键控(GFSK)调制，但蓝牙低能耗技术使用的调制指数是0.5，而标准蓝牙技术是0.35。0.5的指数接近高斯最小频移键控(GMSK)方案，可以降低无线设备的功耗要求(这方面的原因比较复杂，此处暂不赘述)。</para>
+			<para>更低调制指数还有两个好处，即提高覆盖范围和增强健壮性。</para>
+			<para></para>
+			<para>标准蓝牙技术使用的数据包长度较长。在发送这些较长的数据包时，无线设备必须在相对较高的功耗状态保持更长的时间，从而容易使硅片发热。</para>
+			<para>这种发热将改变材料的物理特性，进而改变传送频率（中断链路），除非频繁地对无线设备进行再次校准。</para>
+			<para>再次校准将消耗更多的功率（并且要求闭环架构，使得无线设备更加复杂，从而推高设备价格）。</para>
+			<para>相反，蓝牙低能耗技术使用非常短的数据包——这能使硅片保持在低温状态。因此，蓝牙低能耗收发器不需要较耗能的再次校准和闭环架构。</para>
+		</listitem>
+		<listitem>可变连接时间间隔
+			<para>标准蓝牙技术是一种“面向连接”的无线技术，具有固定的连接时间间隔，因此是移动电话连接无线耳机等高活动连接的理想之选。</para>
+			<para>相反，蓝牙低能耗技术采用可变连接时间间隔，这个间隔根据具体应用可以设置为几毫秒到几秒不等。</para>
+			<para>因为BLE技术采用非常快速的连接方式，因此平时可以处于“非连接”状态（节省能源），</para>
+			<para>此时链路两端相互间只是知晓对方，只有在必要时才开启链路，然后在尽可能短的时间内关闭链路。</para>
+			<para></para>
+			<para></para>
+		</listitem>
+	</itemizedlist>
+	<para></para>
+	<para></para>
+	<para>正因为如此，才使得BLE的工作模式非常适合用于从微型无线传感器（每半秒交换一次数据）或使用完全异步通信的遥控器等其它外设传送数据。</para>
+	<para>这些设备发送的数据量非常少（通常几个字节），而且发送次数也很少（例如每秒几次到每分钟一次，甚至更少）</para>
+	<para></para>
+	<para></para>
+</sect1>
+
+<sect1 xml:id="ble_application"><title>BLE蓝牙的应用领域</title>
+	<para>蓝牙低能耗技术设计非常适合由于严格的功耗限制而无法使用标准蓝牙技术的应用场合。</para>
+	<para>针对于BLE，蓝牙技术联盟(Bluetooth SIG)发布了新的profile，比如：</para>
+	<itemizedlist>
+		<listitem>个人用户接口设备
+			<para>比如手表</para>
+			<para></para>
+			<para></para>
+		</listitem>
+		<listitem>遥控器
+			<para></para>
+			<para></para>
+			<para></para>
+		</listitem>
+		<listitem>距离感应告警仪
+			<para>对应的领域可能有：距离感应告警和室内定位（有时也称为室内GPS）</para>
+			<para>距离感应告警方面的应用可能有：</para>
+			<itemizedlist>
+				<listitem>手表的距离感应告警
+					<para>比如手表将周期性地与手机进行通信，如果手机移到一定的范围之外——因而无法与用户佩戴的手表联系——它将自动锁死，同时手表发出告警。</para>
+					<para>这将防止手机意外丢失，并对任何潜在的小偷起到重要的震慑作用。</para>
+					<para></para>
+					<para></para>
+				</listitem>
+				<listitem>笔记本的距离感应告警
+					<para>距离感应告警应用还可以延伸至便携式电脑，当用户移动到一定范围之外时将便携式电脑锁定（也许当靠近的用户按下手表上的某个键时也能解锁）。</para>
+					<para></para>
+					<para></para>
+				</listitem>
+				<listitem>儿童的距离感应告警
+					<para>这种应用还能用作儿童安全设备，当儿童与父母在一定范围内时他们手上的手表能保持正常通信，当儿童跑出设定范围时发出声音告警。</para>
+					<para></para>
+					<para></para>
+				</listitem>
+			</itemizedlist>
+			<para></para>
+			<para>蓝牙低能耗传感器的低成本和低维护量（因为电池不需要频繁更换）将鼓励在公共场所的广泛使用。</para>
+			<para>另外一种关键应用是室内定位（在没有GPS信号的地方）</para>
+			<para>室内定位方面的应用可能有：</para>
+			<itemizedlist>
+				<listitem>大型公共建筑（如机场或火车站）
+					<para>大型公共建筑（如机场或火车站）周围的传感器不断地广播它们的位置信息</para>
+					<para>装备了蓝牙低能耗技术的手机在这个范围内通过时就可以向它的主人显示这些位置信息。</para>
+					<para>传感器还可以发送其它信息，如航班起飞时间和登机口、娱乐场所位置或附近商店的特价商品等</para>
+					<para></para>
+				</listitem>
+			</itemizedlist>
+			<para></para>
+			<para></para>
+		</listitem>
+		<listitem>电池状态
+			<para></para>
+			<para></para>
+			<para></para>
+		</listitem>
+		<listitem>心率监视器
+			<para></para>
+			<para></para>
+			<para></para>
+		</listitem>
+	</itemizedlist>
+	<para>其它健康和健身监视配置（如血糖仪和血压计、周期性节律仪和周期性奇异电源）将随后推出。</para>
+	<figure xml:id="fg.bluetooth_4_0_define_ble_arch"><title>蓝牙4.0中已经和将要推出的BLE的profile</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bluetooth_4_0_define_ble_arch.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bluetooth_4_0_define_ble_arch.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+	<para></para>
+</sect1>
+
+<sect1 xml:id="ble_chips"><title>BLE厂商和芯片</title>
+	<para></para>
+	<para>下面整理一些，一些厂家研发的BLE芯片：</para>
+	<itemizedlist>
+		<listitem>Nordic的Blue nRF8001 
+			<para>32引脚5x5mm QFN封装的一种单模外设解决方案</para>
+			<para>集成了完全嵌入式无线电、链路控制器和主机子系统——非常适合手表、传感器和遥控器等应用</para>
+			<figure xml:id="fg.ble_chip_nordic_nrf8001"><title>BLE芯片之Nordic的nRF8001</title>
+				<mediaobject>
+					<imageobject role="html"><imagedata fileref="images/ble_chip_nordic_nrf8001.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+					<imageobject role="fo">  <imagedata fileref="images/ble_chip_nordic_nrf8001.jpg" align="center" scalefit="1" width="60%" /></imageobject>
+				</mediaobject>
+			</figure>
+			<para></para>
+		</listitem>
+	</itemizedlist>
+	<para></para>
+</sect1>
+
+</chapter>

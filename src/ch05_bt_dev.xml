@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<!DOCTYPE chapter
+[
+
+<!ENTITY % crl_ent PUBLIC "crl.ent" 'http://www.crifan.com/files/res/docbook/entity/crl.ent'>
+%crl_ent;
+
+]>
+
+<chapter
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xl="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:mathml="http://www.w3.org/1998/Math/MathML"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns="http://docbook.org/ns/docbook"
+
+    xml:id="ch05_bt_dev">
+<title>蓝牙技术的开发</title>
+
+<sect1 xml:id="bt_dev_bluez"><title>基于BlueZ的蓝牙协议栈的开发</title>
+	<para>基于BlueZ的蓝牙协议栈的PC端，比如常见的Ubuntu，（4.2版本之前的）旧版本的Android，则相关的测试工具有：</para>
+	<itemizedlist>
+		<listitem>hciconfig</listitem>
+		<listitem>hciattach</listitem>
+		<listitem>hcitool</listitem>
+		<listitem>rfkill</listitem>
+		<listitem>rfcomm</listitem>
+		<listitem>sdptool</listitem>
+		<listitem>rctest</listitem>
+		<listitem>l2test</listitem>
+	</itemizedlist>
+	<para>TODO：抽空去研究具体是如何使用的。然后把典型的使用，测试流程整理出来。可参考：</para>
+	<para><link xl:href="https://wiki.linaro.org/Resources/HowTo/SamsungBTInOrigen">Resources/HowTo/SamsungBTInOrigen - Linaro Wiki</link></para>
+	<para><link xl:href="http://www.360doc.com/content/12/0218/15/8157643_187595684.shtml">linux下使用蓝牙设备 bluetooth hciconfig hcitool</link></para>
+	<para><link xl:href="http://m.oschina.net/blog/300406">Bluedroid与BluZ，蓝牙测试方法的变动（基于bludroid和BlueZ的对比）</link></para>
+	<para><link xl:href="http://blog.csdn.net/xubin341719/article/details/38640533">Android blueZ HCI（一）：hciconfig实现及常用方法 - CLK - 博客频道 - CSDN.NET</link></para>
+</sect1>
+
+
+</chapter>

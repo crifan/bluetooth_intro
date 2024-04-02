@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<!DOCTYPE chapter
+[
+
+<!ENTITY % crl_ent PUBLIC "crl.ent" 'http://www.crifan.com/files/res/docbook/entity/crl.ent'>
+%crl_ent;
+
+]>
+
+<chapter
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xl="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:mathml="http://www.w3.org/1998/Math/MathML"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns="http://docbook.org/ns/docbook"
+
+    xml:id="ch04_bt_usage">
+
+<title>蓝牙技术的应用</title>
+
+<sect1 xml:id="bt_host_device"><title>蓝牙协议的通用关系：Host主机端和Device设备端</title>
+	<para>具体应用时，包括蓝牙耳机和蓝牙手机或蓝牙电脑之间的连接，都属于蓝牙的主机端和设备端之间的协作，其整体架构，都可以用下图表示：</para>
+	<figure xml:id="fg.bt_host_device_arch_overview"><title>蓝牙的主机端和设备端的架构总览</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_host_device_arch_overview.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_host_device_arch_overview.jpg" align="center" scalefit="0" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+	<para>以及更加详细的说明，主机端和设备端之间，都是通过HCI的接口通讯的：</para>
+	<figure xml:id="fg.hci_software_architecture"><title>蓝牙的主机端和设备端基于HCI通讯的软件架构</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/hci_software_architecture.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/hci_software_architecture.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+
+</sect1>
+
+<sect1 xml:id="bt_usage_audio"><title>蓝牙应用之音频领域</title>
+	<para>然后将蓝牙应用于音频时，官网给出的关系是：</para>
+	<figure xml:id="fg.bt_audio_stream_relation"><title>蓝牙音频应用：源头和目的的关系</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_audio_stream_relation.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_audio_stream_relation.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+	<para>对应的模型如下：</para>
+	<figure xml:id="fg.bt_audio_transport_model"><title>蓝牙音频应用的模型</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_audio_transport_model.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_audio_transport_model.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+	<para>对应的模块关系是：</para>
+	<figure xml:id="fg.bt_audio_application_module"><title>蓝牙音频应用的模块结构</title>
+		<mediaobject>
+			<imageobject role="html"><imagedata fileref="images/bt_audio_application_module.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+			<imageobject role="fo">  <imagedata fileref="images/bt_audio_application_module.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+		</mediaobject>
+	</figure>
+</sect1>
+
+<sect1 xml:id="bt_usage_fieldbus"><title>蓝牙在现场总线领域内的应用</title>
+	<para>现场总线领域内的HART，新出了用蓝牙无线连接的HART猫，以及对应的Android的应用程序，可以通过蓝牙HART猫连接HART设备：</para>
+	<para>对应的Android的蓝牙app，详见：</para>
+	<para><link xl:href="https://play.google.com/store/apps/details?id=com.teknikol.commanderfree&amp;hl=en">teknikol COMMANDER FREE - Android Apps on Google Play</link></para>
+</sect1>
+
+</chapter>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<!DOCTYPE chapter
+[
+
+<!ENTITY % crl_ent PUBLIC "crl.ent" 'http://www.crifan.com/files/res/docbook/entity/crl.ent'>
+%crl_ent;
+
+]>
+
+<chapter
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xl="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:mathml="http://www.w3.org/1998/Math/MathML"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns="http://docbook.org/ns/docbook"
+
+    xml:id="ch03_bt_implementation">
+
+<title>不同平台中的蓝牙技术的实现</title>
+
+<sect1 xml:id="bt_impl_android"><title>蓝牙在Android中的实现</title>
+	<para>Android中的蓝牙协议栈，之前是Bluez，现在改用Bluedroid</para>
+	<para>TODO：关于BlueZ和BlueDroid的对比，抽空再整理。可参考：</para>
+	<para><link xl:href="http://www.xuebuyuan.com/1345358.html">在android4.2中，Google更换了android的蓝牙协议栈，从Bluez换成Bluedroid | 学步园</link></para>
+	<para><link xl:href="http://blog.csdn.net/changemyself/article/details/8454633">Android支持蓝牙4.0版本_BLE开发 - 心有灵犀鬼才心 - 博客频道 - CSDN.NET</link></para>
+</sect1>
+
+<para></para>
+
+</chapter>

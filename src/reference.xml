@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<bibliography
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xl="http://www.w3.org/1999/xlink"
+    
+    xml:id="reference">
+
+<bibliomixed xml:id="ref.bluetooth_protocol_architecture_pdf">
+  <bibliosource><link xl:href="http://srohit.tripod.com/bluetooth_sec.pdf">Bluetooth Protocol Architecture</link></bibliosource>
+  <author>tripod</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.wiki_bluetooth">
+  <bibliosource><link xl:href="http://en.wikipedia.org/wiki/Bluetooth">Bluetooth - Wikipedia, the free encyclopedia</link></bibliosource>
+  <author>wikipedia</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.wiki_list_of_bluetooth_profiles">
+  <bibliosource><link xl:href="http://en.wikipedia.org/wiki/List_of_Bluetooth_profiles">List of Bluetooth profiles - Wikipedia, the free encyclopedia</link></bibliosource>
+  <author>wikipedia</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.wiki_list_of_bluetooth_protocols">
+  <bibliosource><link xl:href="http://en.wikipedia.org/wiki/List_of_Bluetooth_protocols">List of Bluetooth protocols - Wikipedia, the free encyclopedia</link></bibliosource>
+  <author>wikipedia</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.bluetooth_protocol_stack">
+  <bibliosource><link xl:href="http://en.wikipedia.org/wiki/Bluetooth#Bluetooth_protocol_stack">6.1 Bluetooth protocol stack</link></bibliosource>
+  <author>wikipedia</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.bt_protocol_overview">
+  <bibliosource><link xl:href="https://developer.bluetooth.org/TechnologyOverview/Pages/Profiles.aspx">Profiles Overview | Bluetooth Development Portal</link></bibliosource>
+  <author>bluetooth org</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.bluetooth_arch_detail_analysis">
+  <bibliosource><link xl:href="http://course.baidu.com/view/200cac1976c66137ef061910.html">bluetooth协议架构详解与android 蓝牙架构分析</link></bibliosource>
+  <author>gaomeitao123</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.introduce_to_ble">
+  <bibliosource><link xl:href="https://learn.adafruit.com/introduction-to-bluetooth-low-energy/introduction">Introduction | Introduction to Bluetooth Low Energy | Adafruit Learning System</link></bibliosource>
+  <author>adafruit</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.bluetooth_low_power_design_intro">
+  <bibliosource><link xl:href="http://pcbdesign.hampoo.cn/TechnologyCenter/Detail/270">蓝牙低功耗设计简介</link></bibliosource>
+  <author>hampoo</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.ti_ble_intro">
+  <bibliosource><link xl:href="http://blog.csdn.net/ooakk/article/details/7302425">TI低功耗蓝牙（BLE）介绍 - 旋木的专栏 - 博客频道 - CSDN.NET</link></bibliosource>
+  <author>ooakk</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.ble_tech_intro">
+  <bibliosource><link xl:href="http://ee.ofweek.com/2014-01/ART-11000-2807-28772741.html">蓝牙低能耗（BLE）技术简介 - OFweek电子工程网</link></bibliosource>
+  <author>ofweek</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.ble_ulp_inside">
+  <bibliosource><link xl:href="http://www.eet-china.com/ART_8800636691_617687_TA_6173ca44.HTM">蓝牙低能耗技术内幕-RF/微波-电子工程专辑</link></bibliosource>
+  <author>eet-china</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.zdz8207_android_bluetooth_ble">
+  <bibliosource><link xl:href="http://www.cnblogs.com/zdz8207/archive/2012/10/17/bluetooth_ble_android.html">谈谈几个月以来开发android蓝牙4.0 BLE低功耗应用的感受 - 流风，飘然的风 - 博客园</link></bibliosource>
+  <author>zdz8207</author>
+</bibliomixed>
+
+<bibliomixed xml:id="ref.android_developers_bluetooth">
+  <bibliosource><link xl:href="http://developer.android.com/guide/topics/connectivity/bluetooth.html">Bluetooth | Android Developers</link></bibliosource>
+  <author>anroid</author>
+</bibliomixed>
+
+</bibliography>

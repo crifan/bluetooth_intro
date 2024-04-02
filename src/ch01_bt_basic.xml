@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<!DOCTYPE chapter
+[
+
+<!ENTITY % crl_ent PUBLIC "crl.ent" 'http://www.crifan.com/files/res/docbook/entity/crl.ent'>
+%crl_ent;
+
+]>
+
+<chapter 
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xl="http://www.w3.org/1999/xlink"
+    
+    xml:id="ch01_bt_basic">
+<title>蓝牙协议基本知识</title>
+<abstract></abstract>
+
+<sect1 xml:id="bluetooth_spec_version"><title>蓝牙规范协议的版本</title>
+	<para>下面对于各种不同版本的蓝牙规范协议的区别，内容，进行整理如下：</para>
+	<table xml:id="tbl.bt_spec_ver"><title>蓝牙规范协议版本</title>
+		<tgroup cols="4">
+			<colspec colnum="1" colname="col1" colwidth="1*" />
+			<colspec colnum="2" colname="col2" colwidth="1*" />
+			<colspec colnum="3" colname="col3" colwidth="1*" />
+			<colspec colnum="4" colname="col4" colwidth="3*" />
+
+			<thead>
+				<row><entry namest="col1" nameend="col2">蓝牙协议</entry><entry morerows="1" valign="middle">支持的速度</entry><entry morerows="1" valign="middle">备注</entry></row>
+				<row><entry>版本号</entry><entry>发布日期</entry></row>
+			</thead>
+			
+			<tbody>
+				<row><entry>Bluetooth v1.0和v1.0B</entry><entry></entry><entry></entry><entry>
+																					<itemizedlist>
+																						<listitem>强制发送BD_ADDR</listitem>
+																					</itemizedlist>
+																				</entry>
+																			</row>
+				<row><entry>Bluetooth v1.1</entry><entry></entry><entry></entry><entry>
+																					<itemizedlist>
+																						<listitem>对应的IEEE标准是IEEE 802.15.1–2002</listitem>
+																						<listitem>RSSI(Received Signal Strength Indicator)</listitem>
+																					</itemizedlist>
+																				</entry>
+																			</row>
+				<row><entry>Bluetooth v1.2</entry><entry></entry><entry>实际：721Kb/s</entry><entry>
+																					<itemizedlist>
+																						<listitem>对应的IEEE标准是IEEE 802.15.1–2005</listitem>
+																						<listitem>AFH(Adaptive Frequency-Hopping spread spectrum)</listitem>
+																						<listitem>eSCO(Extended Synchronous Connections)</listitem>
+																						<listitem>HCI(Host Controller Interface)</listitem>
+																					</itemizedlist>
+																				</entry>
+																			</row>
+				<row><entry>Bluetooth v2.0+EDR</entry><entry>2004年</entry><entry>	<itemizedlist>
+																						<listitem>理论：3Mb/s</listitem>
+																						<listitem>实际：2.1Mb/s</listitem>
+																					</itemizedlist>
+																			</entry>
+																			<entry>
+																					<itemizedlist>
+																						<listitem>EDR(π/4-DQPSK +8DPSK)</listitem>
+																					</itemizedlist>
+																				</entry>
+																			</row>
+				<row><entry>Bluetooth v2.1+EDR</entry><entry>2007-07-26</entry>	<entry>
+																				<itemizedlist>
+																					<listitem>理论：24Mb/s -> High Speed</listitem>
+																					</itemizedlist>
+																				</entry>
+																				<entry>
+																					<itemizedlist>
+																						<listitem>SSP(Secure Simple Pairing)</listitem>
+																						<listitem>EIR(Extended Inquiry Response)</listitem>
+																					</itemizedlist>
+																				</entry>
+																			</row>
+				<row><entry>Bluetooth v3.0+HS</entry><entry>2009-04-21</entry>	<entry></entry>
+																				<entry>
+																					<itemizedlist>
+																						<listitem>AMP (Alternative MAC/PHY)
+																							<itemizedlist>
+																								<listitem>-&gt;Bluetooth over 802.11 high-speed data transfer</listitem>
+																								<listitem>-&gt;Bluetooth High Speed based on Wi-Fi</listitem>
+																							</itemizedlist>
+																						</listitem>
+																						<listitem>L2CAP Enhanced modes</listitem>
+																						<listitem>Unicast Connectionless Data</listitem>
+																						<listitem>Enhanced Power Control</listitem>
+																					</itemizedlist>
+																				</entry>
+																			</row>
+				<row><entry>Bluetooth v4.0</entry><entry>2010-06-30</entry>	<entry></entry>
+																				<entry>
+																					<itemizedlist>
+																						<listitem>Bluetooth v4.0
+																							<itemizedlist>
+																								<listitem>==Bluetooth Smart</listitem>
+																								<listitem>=Classic Bluetooth+Bluetooth HS(High Speed)+Bluetooth BLE(Bluetooth Low Energy)</listitem>
+																							</itemizedlist>
+																						</listitem>
+																						<listitem>GATT(Generic Attribute Profile)</listitem>
+																						<listitem>带AES加密的SM(Security Manager)</listitem>
+																					</itemizedlist>
+																				</entry>
+																			</row>
+				<row><entry>Bluetooth v4.1</entry><entry>2013-12-04</entry>	<entry></entry>
+																				<entry>
+																					<itemizedlist>
+																						<listitem>Mobile Wireless Service Coexistence Signaling</listitem>
+																						<listitem>Train Nudging and Generalized Interlaced Scanning</listitem>
+																						<listitem>Low Duty Cycle Directed Advertising</listitem>
+																						<listitem>L2CAP Connection Oriented and Dedicated Channels with Credit Based Flow Control</listitem>
+																						<listitem>Dual Mode and Topology</listitem>
+																						<listitem>LE Link Layer Topology</listitem>
+																						<listitem>802.11n PAL</listitem>
+																						<listitem>Audio Architecture Updates for Wide Band Speech</listitem>
+																						<listitem>Fast Data Advertising Interval</listitem>
+																						<listitem>Limited Discovery Time</listitem>
+																					</itemizedlist>
+																				</entry>
+																			</row>
+				<row><entry>Bluetooth v4.2</entry><entry>2014-12-02</entry>	<entry></entry>
+																				<entry>
+																					<itemizedlist>
+																						<listitem>LE Data Packet Length Extension</listitem>
+																						<listitem>LE Secure Connections</listitem>
+																						<listitem>Link Layer Privacy</listitem>
+																						<listitem>Link Layer Extended Scanner Filter Policies</listitem>
+																						<listitem>IP connectivity for Bluetooth Smart devices will soon be available via the new Internet Protocol Support Profile (IPSP)</listitem>
+																						<listitem>IPSP will add an IPv6 connection option for Bluetooth Smart, making it ideal for connected home and other IoT implementations</listitem>
+																						<listitem>Bluetooth 4.2 transfers data even faster by increasing the capacity of the Bluetooth Smart packets</listitem>
+																						<listitem>Bluetooth Smart gets smarter with industry-leading privacy settings that not only lower power consumption but also make it difficult for eavesdroppers to track a device through the Bluetooth connection without permission</listitem>
+																						<listitem>A consumer can have higher confidence they aren’t being tracked by beacons or anything else</listitem>
+																					</itemizedlist>
+																				</entry>
+																			</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<para></para>
+</sect1>
+
+<para>蓝牙的信号的传输，物理上有多种协议实现。</para>
+<para>详见：<link xl:href="http://en.wikipedia.org/wiki/List_of_Bluetooth_protocols#Controller_stack">Controller_stack - List of Bluetooth protocols - Wikipedia, the free encyclopedia</link></para>
+<para></para>
+<para></para>
+
+<para>蓝牙BD/EDR和蓝牙BLE之间的主要参数的区别和对比：</para>
+<table xml:id="tbl.bt_br_edr_vs_bt_ble"><title>蓝牙BD/EDR和蓝牙BLE主要参数对比</title>
+    <tgroup cols="3">
+        <colspec colnum="1" colname="col1" colwidth="1*" />
+        <colspec colnum="2" colname="col2" colwidth="1*" />
+        <colspec colnum="3" colname="col3" colwidth="1*" />
+        
+        <thead>
+            <row><entry>对比项</entry><entry>蓝牙BD/EDR</entry><entry>蓝牙BLE</entry></row>
+        </thead>
+        
+        <tbody>
+            <row><entry>射频物理上的通道</entry><entry>79个频段，1MHz的通道步长</entry><entry>40个频段，1MHz的通道步长</entry></row>
+            <row><entry>发现/连接</entry><entry>查询/传呼</entry><entry>广播</entry></row>
+            <row><entry>微微网从设备数目</entry><entry>活动的7个/共255个</entry><entry>无限制</entry></row>
+            <row><entry>设备地址隐私性</entry><entry>无</entry><entry>仅私有地址寻址有效</entry></row>
+            <row><entry>最大数据率</entry><entry>1-3Mbps</entry><entry>1Mbps（GFSK调制）</entry></row>
+            <row><entry>加密算法</entry><entry>E0/SAFER+</entry><entry>AES-CCM</entry></row>
+            <row><entry>典型覆盖范围</entry><entry>30米</entry><entry>50米</entry></row>
+            <row><entry>最大输出功率</entry><entry>100mW(20dBm)</entry><entry>10mW(10dBm)</entry></row>
+        </tbody>
+    </tgroup>
+</table>
+
+<para>不同无线技术的功耗对比，包括蓝牙，UWB，ZigBee，WiFi：</para>
+<figure xml:id="fg.power_consumption_bt_uwb_zigbee_wifi"><title>蓝牙/UWB/ZigBee/WiFi功耗对比</title>
+	<mediaobject>
+		<imageobject role="html"><imagedata fileref="images/power_consumption_bt_uwb_zigbee_wifi.jpg" align="left"   scalefit="0" width="100%" /></imageobject>
+		<imageobject role="fo">  <imagedata fileref="images/power_consumption_bt_uwb_zigbee_wifi.jpg" align="center" scalefit="1" width="100%" /></imageobject>
+	</mediaobject>
+</figure>
+
+<para></para>
+<para>TODO：这里：<link xl:href="http://blog.csdn.net/innost/article/details/9187199">Android 4.2蓝牙介绍 - Innost的专栏 - 博客频道 - CSDN.NET</link>解释的貌似不错，抽空整理过来。</para>
+<para></para>
+
+</chapter>
